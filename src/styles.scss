@@ -7,3 +7,15 @@ body {
 .max-height {
   min-height: 95vh;
 }
+
+.loader-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  & .spinner-border {
+    width: 6rem;
+    height: 6rem;
+  }
+}

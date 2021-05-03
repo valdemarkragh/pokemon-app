@@ -1,4 +1,8 @@
-<p *ngIf="loading">Loading..</p>
+<div *ngIf="loading" class="loader-wrapper">
+  <div class="spinner-border text-dark" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
 <div *ngIf="pokemon" [ngClass]="{ 'd-none': loading }" class="row pt-5">
   <div class="col-lg-8 offset-lg-2">
     <div class="pokemon-profile">

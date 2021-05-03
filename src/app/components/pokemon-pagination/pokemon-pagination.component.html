@@ -1,0 +1,16 @@
+<div class="pagination d-flex justify-content-center mt-4 pb-5">
+  <button
+    class="btn btn-primary me-2"
+    [ngClass]="setPrevClass()"
+    (click)="prevPage()"
+  >
+    Prev page
+  </button>
+  <button
+    class="btn btn-primary"
+    [ngClass]="setNextClass()"
+    (click)="nextPage()"
+  >
+    Next page
+  </button>
+</div>

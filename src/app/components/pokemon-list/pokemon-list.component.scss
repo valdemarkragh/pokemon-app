@@ -1,0 +1,11 @@
+.card-img {
+  & img {
+    width: 50%;
+    height: 10vh;
+    object-fit: contain;
+  }
+}
+
+.card-title {
+  text-transform: capitalize;
+}

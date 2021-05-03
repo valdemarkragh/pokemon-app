@@ -1,0 +1,102 @@
+<p *ngIf="loading">Loading..</p>
+<div *ngIf="pokemon" [ngClass]="{ 'd-none': loading }" class="row pt-5">
+  <div class="col-lg-8 offset-lg-2">
+    <div class="pokemon-profile">
+      <h1 class="pokemon-name text-center mb-3">{{ pokemon.name }}</h1>
+      <div
+        class="pokemon-types text-capitalize d-flex justify-content-center align-items-center mb-2"
+      ></div>
+      <div class="pokemon-image">
+        <img
+          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/{{
+            pokemon.id
+          }}.svg"
+          [alt]="pokemon.name"
+          class="shadow rounded-circle bg-white"
+        />
+      </div>
+      <div class="row mt-5 bg-white p-5 rounded shadow">
+        <div class="col-lg-4">
+          <div class="pokemon-info">
+            <h3>Profile</h3>
+            <p>Height: {{ pokemon.height }}</p>
+            <p>Weight: {{ pokemon.weight }}</p>
+            <p>Base Exp: {{ pokemon.base_experience }}</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="pokemon-info">
+            <h3>Base Stats</h3>
+            <p *ngFor="let type of pokemon.types">Type: {{ type.type.name }}</p>
+            <p *ngFor="let stat of pokemon.stats">
+              {{ stat.stat.name }}: {{ stat.base_stat }}
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="pokemon-info">
+            <h3>Abilities</h3>
+            <p *ngFor="let ability of pokemon.abilities">
+              {{ ability.ability.name }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="col-lg-6 offset-lg-3 d-flex justify-content-center align-items-center mt-5"
+        >
+          <button
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Click to see moves
+          </button>
+        </div>
+      </div>
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Moves for <span class="pokemon-move">{{ pokemon.name }}</span>
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <ul class="list-group">
+                <li
+                  class="list-group-item pokemon-move"
+                  *ngFor="let move of pokemon.moves"
+                >
+                  {{ move.move.name }}
+                </li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

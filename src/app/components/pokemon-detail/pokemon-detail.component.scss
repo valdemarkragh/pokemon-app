@@ -1,0 +1,28 @@
+.pokemon-name,
+.pokemon-info,
+.pokemon-move {
+  text-transform: capitalize;
+}
+
+.pokemon-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & h3 {
+    padding-bottom: 10px;
+  }
+}
+
+.pokemon-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & img {
+    width: 400px;
+    height: 400px;
+    object-fit: contain;
+  }
+}

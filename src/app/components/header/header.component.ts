@@ -11,7 +11,9 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   private _userSub: Subscription;
-  public isAuthenticated = false;
+  public isAuthenticated: Boolean = Boolean(
+    this.storageService.getUserStorage()
+  );
 
   constructor(
     private readonly authService: AuthService,
@@ -32,6 +34,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   onLogout(): void {
     this.storageService.removeUserStorage();
     this.authService.logoutUser();
-    this.router.navigate(['/trainer']);
+    this.router.navigate(['/login']);
   }
 }

@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { PokemonPage } from './components/pages/pokemon/pokemon.page';
 import { ProfilePage } from './components/pages/profile/profile.page';
 import { PokemonCataloguePage } from './components/pages/pokemon-catalogue/pokemon-catalogue.page';
@@ -9,11 +10,12 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/pokemon-catalogue',
+    redirectTo: '/',
   },
   {
     path: 'pokemon-catalogue',
     component: PokemonCataloguePage,
+    canActivate: [AuthGuard],
   },
   {
     path: 'pokemon-detail/:name',
@@ -24,7 +26,7 @@ const routes: Routes = [
     component: ProfilePage,
   },
   {
-    path: 'trainer',
+    path: 'login',
     component: TrainerLoginPage,
   },
 ];

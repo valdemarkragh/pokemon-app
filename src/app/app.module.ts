@@ -8,7 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
-import { HeaderComponent } from './components/pages/header/header.component';
+import { HeaderComponent } from './components/header/header.component';
 import { PokemonPaginationComponent } from './components/pokemon-pagination/pokemon-pagination.component';
 import { PokemonModalComponent } from './components/pokemon-modal/pokemon-modal.component';
 import { TrainerLoginPage } from './components/pages/trainer-login/trainer-login.page';
@@ -19,7 +19,6 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     PokemonListComponent,
-    HeaderComponent,
     PokemonPaginationComponent,
     PokemonCataloguePage,
     PokemonPage,
@@ -27,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     PokemonModalComponent,
     TrainerLoginPage,
     AuthComponent,
+    HeaderComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

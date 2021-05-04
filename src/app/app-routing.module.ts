@@ -3,6 +3,7 @@ import { ProfilePage } from './components/pages/profile/profile.page';
 import { PokemonCataloguePage } from './components/pages/pokemon-catalogue/pokemon-catalogue.page';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TrainerLoginPage } from './components/pages/trainer-login/trainer-login.page';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfilePage,
+  },
+  {
+    path: 'trainer',
+    component: TrainerLoginPage,
   },
 ];
 

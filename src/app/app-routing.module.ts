@@ -1,6 +1,6 @@
 import { AuthGuard } from './guards/auth.guard';
 import { PokemonPage } from './components/pages/pokemon/pokemon.page';
-import { ProfilePage } from './components/pages/profile/profile.page';
+import { TrainerProfilePage } from './components/pages/trainer-profile/trainer-profile.page';
 import { PokemonCataloguePage } from './components/pages/pokemon-catalogue/pokemon-catalogue.page';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/',
+    redirectTo: '/pokemon-catalogue',
   },
   {
     path: 'pokemon-catalogue',
@@ -20,10 +20,12 @@ const routes: Routes = [
   {
     path: 'pokemon-detail/:name',
     component: PokemonPage,
+    canActivate: [AuthGuard],
   },
   {
     path: 'profile',
-    component: ProfilePage,
+    component: TrainerProfilePage,
+    canActivate: [AuthGuard],
   },
   {
     path: 'login',

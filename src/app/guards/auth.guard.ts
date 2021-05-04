@@ -1,10 +1,8 @@
-import { StorageService } from './../services/storage.service';
-import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
   RouterStateSnapshot,
-  UrlTree,
   Router,
 } from '@angular/router';
 import { Injectable } from '@angular/core';
@@ -14,18 +12,17 @@ import { Injectable } from '@angular/core';
 })
 export class AuthGuard implements CanActivate {
   constructor(
-    private readonly storageService: StorageService,
+    private readonly authService: AuthService,
     private readonly router: Router
   ) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     router: RouterStateSnapshot
   ): boolean {
-    if (this.storageService.getUserStorage()) {
+    if (this.authService.isAuthenticated()) {
       return true;
-    } else {
-      this.router.navigateByUrl('login');
-      return false;
     }
+    this.router.navigate(['/login']);
+    return false;
   }
 }

@@ -5,11 +5,11 @@ import { AuthService } from 'src/app/services/auth.service';
 import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
-  selector: 'app-auth',
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss'],
+  selector: 'app-trainer-auth',
+  templateUrl: './trainer-auth.component.html',
+  styleUrls: ['./trainer-auth.component.scss'],
 })
-export class AuthComponent {
+export class TrainerAuthComponent {
   constructor(
     private readonly storageService: StorageService,
     private readonly authService: AuthService,

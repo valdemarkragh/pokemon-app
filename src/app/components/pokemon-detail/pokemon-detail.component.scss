@@ -27,3 +27,22 @@
     padding: 20px;
   }
 }
+
+.pokeball {
+  height: 5vh;
+  width: 5vh;
+  top: 0%;
+  left: 60%;
+  cursor: pointer;
+  transition: transform 0.4s;
+
+  & img {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+  }
+
+  &:hover {
+    transform: scale(1.5);
+  }
+}

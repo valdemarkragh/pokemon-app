@@ -7,7 +7,8 @@ import { User } from '../models/user.model';
 })
 export class StorageService {
   private _userName: User;
-  private _userPokemons: Pokemon[] = [];
+  private _userPokemons: Pokemon[] =
+    this.getUserPokemons() !== null ? this.getUserPokemons() : [];
 
   constructor() {}
 
@@ -22,5 +23,28 @@ export class StorageService {
 
   public removeUserStorage(): void {
     localStorage.removeItem('user');
+    localStorage.removeItem('caught_pokemons');
+    this._userPokemons = [];
+  }
+
+  public addUserPokemon(pokemon: Pokemon): void {
+    this._userPokemons.push(pokemon);
+    this.setUserPokemons(this._userPokemons);
+  }
+
+  private setUserPokemons(pokemons: Pokemon[]) {
+    localStorage.setItem('caught_pokemons', JSON.stringify(pokemons));
+  }
+
+  private getUserPokemons(): Pokemon[] {
+    return JSON.parse(localStorage.getItem('caught_pokemons'));
+  }
+
+  public isPokemonCaught(pokemon: Pokemon): Boolean {
+    return Boolean(this._userPokemons.find((p) => p.id === pokemon.id));
+  }
+
+  public userPokemons(): Pokemon[] {
+    return this._userPokemons;
   }
 }

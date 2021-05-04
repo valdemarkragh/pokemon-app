@@ -12,8 +12,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { PokemonPaginationComponent } from './components/pokemon-pagination/pokemon-pagination.component';
 import { PokemonModalComponent } from './components/pokemon-modal/pokemon-modal.component';
 import { TrainerLoginPage } from './components/pages/trainer-login/trainer-login.page';
-import { AuthComponent } from './components/auth/auth.component';
+import { TrainerAuthComponent } from './components/trainer-auth/trainer-auth.component';
 import { FormsModule } from '@angular/forms';
+import { TrainerProfilePage } from './components/pages/trainer-profile/trainer-profile.page';
 
 @NgModule({
   declarations: [
@@ -25,8 +26,9 @@ import { FormsModule } from '@angular/forms';
     PokemonDetailComponent,
     PokemonModalComponent,
     TrainerLoginPage,
-    AuthComponent,
+    TrainerAuthComponent,
     HeaderComponent,
+    TrainerProfilePage,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

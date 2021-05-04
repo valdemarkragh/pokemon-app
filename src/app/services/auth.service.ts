@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 import { User } from '../models/user.model';
 import { StorageService } from './storage.service';
 
@@ -7,24 +6,23 @@ import { StorageService } from './storage.service';
   providedIn: 'root',
 })
 export class AuthService {
-  user = new Subject<User>();
+  private _isAuthenticated: Boolean = Boolean(
+    this.storageService.getUserStorage()
+  );
 
   constructor(private readonly storageService: StorageService) {}
 
   loginUser(user: User): void {
-    this.user.next(user);
+    this.storageService.setUserStorage(user);
+    this._isAuthenticated = true;
   }
 
   logoutUser(): void {
-    this.user.next(null);
+    this.storageService.removeUserStorage();
+    this._isAuthenticated = false;
   }
 
-  autoLogin(): void {
-    const loggedInUser: User = this.storageService.getUserStorage();
-    if (!loggedInUser) {
-      return;
-    }
-
-    this.user.next(loggedInUser);
+  public isAuthenticated(): Boolean {
+    return this._isAuthenticated;
   }
 }

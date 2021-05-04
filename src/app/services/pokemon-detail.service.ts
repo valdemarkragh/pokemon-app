@@ -1,3 +1,4 @@
+import { StorageService } from 'src/app/services/storage.service';
 import { Pokemon } from './../models/pokemon.model';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -10,7 +11,10 @@ export class PokemonDetailService {
   private _error: string = '';
   private _loading: Boolean;
 
-  constructor(private readonly http: HttpClient) {}
+  constructor(
+    private readonly http: HttpClient,
+    private readonly storageService: StorageService
+  ) {}
 
   public fetchPokemon(name: string): void {
     this._loading = true;
@@ -37,5 +41,9 @@ export class PokemonDetailService {
 
   public loading(): Boolean {
     return this._loading;
+  }
+
+  public isPokemonCaught(): Boolean {
+    return this.storageService.isPokemonCaught(this._pokemon);
   }
 }

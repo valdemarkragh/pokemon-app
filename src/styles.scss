@@ -8,8 +8,16 @@ body {
   min-height: 95vh;
 }
 
+.full-width {
+  width: 100%;
+}
+
 .half-width {
   width: 50vw;
+}
+
+.half-height {
+  height: 50vh;
 }
 
 .loader-wrapper {

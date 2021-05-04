@@ -10,7 +10,7 @@
       <div
         class="pokemon-types text-capitalize d-flex justify-content-center align-items-center mb-2"
       ></div>
-      <div class="pokemon-image">
+      <div class="pokemon-image position-relative">
         <img
           src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/{{
             pokemon.id
@@ -18,6 +18,13 @@
           [alt]="pokemon.name"
           class="shadow rounded-circle bg-white"
         />
+        <div
+          class="pokeball position-absolute"
+          [ngClass]="{ 'd-none': isPokemonCaught }"
+          (click)="catchPokemon(pokemon)"
+        >
+          <img src="../../../assets/images/pokeball.png" />
+        </div>
       </div>
       <div class="row mt-5 bg-white p-5 rounded shadow">
         <div class="col-lg-4">
@@ -63,4 +70,3 @@
   </div>
   <app-pokemon-modal></app-pokemon-modal>
 </div>
-

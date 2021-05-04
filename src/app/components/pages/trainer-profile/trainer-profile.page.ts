@@ -1,4 +1,4 @@
-import { User } from './../../../models/user.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { Pokemon } from './../../../models/pokemon.model';
 import { Component } from '@angular/core';
@@ -9,13 +9,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./trainer-profile.page.scss'],
 })
 export class TrainerProfilePage {
-  constructor(private readonly storageService: StorageService) {}
+  constructor(
+    private readonly storageService: StorageService,
+    private readonly authService: AuthService
+  ) {}
 
   get pokemons(): Pokemon[] {
-    return this.storageService.userPokemons();
+    return this.storageService.getUserPokemons();
   }
 
-  get username(): User {
-    return this.storageService.getUserStorage();
+  get username(): string {
+    return this.authService.getLoggedInUser();
   }
 }

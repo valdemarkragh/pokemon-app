@@ -1,25 +1,44 @@
 import { Injectable } from '@angular/core';
-import { User } from '../models/user.model';
-import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private _isAuthenticated: Boolean = Boolean(
-    this.storageService.getUserStorage()
-  );
+  private _isAuthenticated: Boolean = Boolean(this.isUserAuth());
 
-  constructor(private readonly storageService: StorageService) {}
+  constructor() {}
 
-  loginUser(user: User): void {
-    this.storageService.setUserStorage(user);
+  public loginUser(username: string): void {
+    this.setLoggedInUser(username);
     this._isAuthenticated = true;
   }
 
-  logoutUser(): void {
-    this.storageService.removeUserStorage();
+  public logoutUser(): void {
+    this.removeAuth();
     this._isAuthenticated = false;
+  }
+
+  public getLoggedInUser(): string {
+    return localStorage.getItem('auth');
+  }
+
+  private isUserAuth(): Boolean {
+    return Boolean(localStorage.getItem('auth'));
+  }
+
+  private removeAuth(): void {
+    localStorage.removeItem('auth');
+  }
+
+  private setLoggedInUser(name: string): void {
+    localStorage.setItem('auth', name);
+    if (!this.userExists) {
+      localStorage.setItem(this.getLoggedInUser(), JSON.stringify([]));
+    }
+  }
+
+  private userExists(name: string): Boolean {
+    return Boolean(localStorage.getItem(name));
   }
 
   public isAuthenticated(): Boolean {

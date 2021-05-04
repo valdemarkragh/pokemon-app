@@ -1,50 +1,38 @@
+import { AuthService } from 'src/app/services/auth.service';
 import { Injectable } from '@angular/core';
 import { Pokemon } from '../models/pokemon.model';
-import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StorageService {
-  private _userName: User;
-  private _userPokemons: Pokemon[] =
-    this.getUserPokemons() !== null ? this.getUserPokemons() : [];
+  constructor(private readonly authService: AuthService) {}
 
-  constructor() {}
-
-  public setUserStorage(name: User): void {
-    this._userName = name;
-    localStorage.setItem('user', JSON.stringify(this._userName));
-  }
-
-  public getUserStorage(): User {
-    return JSON.parse(localStorage.getItem('user'));
-  }
-
-  public removeUserStorage(): void {
-    localStorage.removeItem('user');
-    localStorage.removeItem('caught_pokemons');
-    this._userPokemons = [];
+  public setInitialStorage(): void {
+    localStorage.setItem(
+      this.authService.getLoggedInUser(),
+      JSON.stringify([])
+    );
   }
 
   public addUserPokemon(pokemon: Pokemon): void {
-    this._userPokemons.push(pokemon);
-    this.setUserPokemons(this._userPokemons);
+    const currentPokemons = this.getUserPokemons();
+    currentPokemons.push(pokemon);
+    this.setUserPokemons(currentPokemons);
   }
 
-  private setUserPokemons(pokemons: Pokemon[]) {
-    localStorage.setItem('caught_pokemons', JSON.stringify(pokemons));
+  public setUserPokemons(pokemons: Pokemon[]) {
+    localStorage.setItem(
+      this.authService.getLoggedInUser(),
+      JSON.stringify(pokemons)
+    );
   }
 
-  private getUserPokemons(): Pokemon[] {
-    return JSON.parse(localStorage.getItem('caught_pokemons'));
+  public getUserPokemons(): Pokemon[] {
+    return JSON.parse(localStorage.getItem(this.authService.getLoggedInUser()));
   }
 
   public isPokemonCaught(pokemon: Pokemon): Boolean {
-    return Boolean(this._userPokemons.find((p) => p.id === pokemon.id));
-  }
-
-  public userPokemons(): Pokemon[] {
-    return this._userPokemons;
+    return Boolean(this.getUserPokemons().find((p) => p.id === pokemon.id));
   }
 }

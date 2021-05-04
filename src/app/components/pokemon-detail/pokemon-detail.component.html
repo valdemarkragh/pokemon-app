@@ -11,15 +11,23 @@
         class="pokemon-types text-capitalize d-flex justify-content-center align-items-center mb-2"
       ></div>
       <div class="pokemon-image position-relative">
+        <h3
+          class="z-index position-absolute bg-success p-3 text-white rounded shadow"
+          *ngIf="isPokemonCaught"
+        >
+          Caught!
+        </h3>
         <img
           src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/{{
             pokemon.id
           }}.svg"
           [alt]="pokemon.name"
           class="shadow rounded-circle bg-white"
+          [ngClass]="{ opacity: isPokemonCaught }"
         />
         <div
           class="pokeball position-absolute"
+          title="Catch {{ pokemon.name }}"
           [ngClass]="{ 'd-none': isPokemonCaught }"
           (click)="catchPokemon(pokemon)"
         >

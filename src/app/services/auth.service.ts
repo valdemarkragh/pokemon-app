@@ -32,7 +32,7 @@ export class AuthService {
 
   private setLoggedInUser(name: string): void {
     localStorage.setItem('auth', name);
-    if (!this.userExists) {
+    if (!this.userExists(name)) {
       localStorage.setItem(this.getLoggedInUser(), JSON.stringify([]));
     }
   }

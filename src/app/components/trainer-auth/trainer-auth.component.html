@@ -3,12 +3,12 @@
 >
   <div class="col-lg-12 d-flex justify-content-center">
     <form
-      class="trainer-form p-3"
+      class="trainer-form p-4"
       #authForm="ngForm"
       (ngSubmit)="onSubmit(authForm)"
     >
       <div class="form-group">
-        <h2>Your Trainer Name</h2>
+        <h2>Welcome Trainer!</h2>
         <hr />
         <input
           type="text"
@@ -24,8 +24,8 @@
         />
       </div>
       <div *ngIf="username.invalid && (username.dirty || username.touched)">
-        <p *ngIf="username.errors?.required">Username is required</p>
-        <p *ngIf="username.errors?.minlength">The username is too short</p>
+        <p *ngIf="username.errors?.required">Name is required</p>
+        <p *ngIf="username.errors?.minlength">The name is too short</p>
       </div>
       <div class="my-3">
         <button class="btn btn-primary full-width" [disabled]="!authForm.valid">

@@ -16,10 +16,16 @@
           class="form-control"
           placeholder="Type your name.."
           ngModel
+          #username="ngModel"
           name="trainername"
           required
           minlength="2"
+          autocomplete="off"
         />
+      </div>
+      <div *ngIf="username.invalid && (username.dirty || username.touched)">
+        <p *ngIf="username.errors?.required">Username is required</p>
+        <p *ngIf="username.errors?.minlength">The username is too short</p>
       </div>
       <div class="my-3">
         <button class="btn btn-primary full-width" [disabled]="!authForm.valid">

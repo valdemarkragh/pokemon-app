@@ -14,20 +14,13 @@ export class PokemonPaginationComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  setNextClass() {
-    let disabled = {
-      disabled: this.response?.next === null,
+  setBtnClass(action) {
+    return {
+      disabled:
+        action === 'next'
+          ? Boolean(!this.response?.next)
+          : Boolean(!this.response?.previous),
     };
-
-    return disabled;
-  }
-
-  setPrevClass() {
-    let disabled = {
-      disabled: this.response?.previous === null,
-    };
-
-    return disabled;
   }
 
   nextPage(): void {

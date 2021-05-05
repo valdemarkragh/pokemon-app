@@ -5,11 +5,21 @@
 
 .trainer-form {
   height: 25vh;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+  width: 100%;
 }
 
 .form-control {
   font-size: 1.7rem;
+}
+
+.login-row {
+  max-height: 95vh;
+
+  & img {
+    height: 70%;
+  }
+
+  & .col-lg-6 {
+    height: 95vh;
+  }
 }

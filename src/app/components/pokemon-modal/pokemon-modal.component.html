@@ -6,7 +6,7 @@
   aria-hidden="true"
 >
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content bg-main-dark">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">
           Moves for <span class="pokemon-move">{{ pokemon.name }}</span>
@@ -19,9 +19,9 @@
         ></button>
       </div>
       <div class="modal-body">
-        <ul class="list-group">
+        <ul class="list-group bg-main-dark">
           <li
-            class="list-group-item pokemon-move"
+            class="list-group-item bg-main-dark pokemon-move text-white"
             *ngFor="let move of pokemon.moves"
           >
             {{ move.move.name }}
@@ -29,7 +29,11 @@
         </ul>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+        <button
+          type="button"
+          class="btn btn-secondary btn-primary"
+          data-bs-dismiss="modal"
+        >
           Close
         </button>
       </div>

@@ -24,4 +24,8 @@ export class PokemonCataloguePage implements OnInit {
   get response(): PokemonResponse {
     return this.pokemonService.response();
   }
+
+  get page(): number {
+    return this.pokemonService.page();
+  }
 }

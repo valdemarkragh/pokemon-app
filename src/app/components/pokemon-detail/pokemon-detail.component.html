@@ -1,5 +1,5 @@
 <div *ngIf="loading" class="loader-wrapper">
-  <div class="spinner-border text-dark" role="status">
+  <div class="spinner-border text-white" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
 </div>
@@ -12,7 +12,7 @@
       ></div>
       <div class="pokemon-image position-relative">
         <h3
-          class="z-index position-absolute bg-success p-3 text-white rounded shadow"
+          class="z-index position-absolute bg-main-dark p-3 text-white rounded shadow"
           *ngIf="isPokemonCaught"
         >
           Caught!
@@ -21,8 +21,9 @@
           src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/{{
             pokemon.id
           }}.svg"
+          draggable="false"
           [alt]="pokemon.name"
-          class="shadow rounded-circle bg-white"
+          class="shadow rounded-circle bg-main-dark"
           [ngClass]="{ opacity: isPokemonCaught }"
         />
         <div
@@ -31,10 +32,10 @@
           [ngClass]="{ 'd-none': isPokemonCaught }"
           (click)="catchPokemon(pokemon)"
         >
-          <img src="../../../assets/images/pokeball.png" />
+          <img src="../../../assets/images/pokeball-alt.png" />
         </div>
       </div>
-      <div class="row mt-5 bg-white p-5 rounded shadow">
+      <div class="row mt-5 p-5 rounded shadow bg-main-dark">
         <div class="col-lg-4">
           <div class="pokemon-info">
             <h3>Profile</h3>

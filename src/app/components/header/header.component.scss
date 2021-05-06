@@ -4,4 +4,17 @@ nav {
 
 .nav-link {
   cursor: pointer;
+  color: #b5b9de !important;
+
+  &:hover {
+    color: #fff !important;
+  }
+
+  &.active {
+    color: #fff !important;
+  }
+}
+
+.navbar-brand {
+  font-weight: bold;
 }

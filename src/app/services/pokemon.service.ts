@@ -11,6 +11,7 @@ export class PokemonService {
   private _pokemons: Pokemon[] = [];
   private _error: string = '';
   private _currentUrl: string = '';
+  private _page: number;
 
   constructor(private readonly http: HttpClient) {}
 
@@ -21,6 +22,7 @@ export class PokemonService {
       .pipe(
         map((response: PokemonResponse) => {
           this._response = response;
+          this._page = this.getPage(response);
           return response.results.map((pokemon: Pokemon) => ({
             ...pokemon,
             id: this.getId(pokemon.url),
@@ -41,6 +43,11 @@ export class PokemonService {
     return Number(url.split('/').filter(Boolean).pop());
   }
 
+  private getPage(response: PokemonResponse): number {
+    const url = response.next;
+    return Number(url.substring(url.indexOf('=') + 1, url.indexOf('&'))) - 20;
+  }
+
   public pokemons(): Pokemon[] {
     return this._pokemons;
   }
@@ -55,5 +62,9 @@ export class PokemonService {
 
   public currentUrl(): string {
     return this._currentUrl;
+  }
+
+  public page(): number {
+    return this._page;
   }
 }

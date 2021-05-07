@@ -1,10 +1,10 @@
 import { AuthGuard } from './guards/auth.guard';
-import { PokemonPage } from './components/pages/pokemon/pokemon.page';
-import { TrainerProfilePage } from './components/pages/trainer-profile/trainer-profile.page';
-import { PokemonCataloguePage } from './components/pages/pokemon-catalogue/pokemon-catalogue.page';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TrainerLoginPage } from './components/pages/trainer-login/trainer-login.page';
+import { TrainerLoginPage } from './pages/trainer-login/trainer-login.page';
+import { PokemonCataloguePage } from './pages/pokemon-catalogue/pokemon-catalogue.page';
+import { PokemonPage } from './pages/pokemon/pokemon.page';
+import { TrainerProfilePage } from './pages/trainer-profile/trainer-profile.page';
 
 const routes: Routes = [
   {

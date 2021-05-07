@@ -1,6 +1,6 @@
 import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
-import { PokemonPage } from './components/pages/pokemon/pokemon.page';
-import { PokemonCataloguePage } from './components/pages/pokemon-catalogue/pokemon-catalogue.page';
+import { PokemonPage } from './pages/pokemon/pokemon.page';
+import { PokemonCataloguePage } from './pages/pokemon-catalogue/pokemon-catalogue.page';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,10 +11,10 @@ import { PokemonListComponent } from './components/pokemon-list/pokemon-list.com
 import { HeaderComponent } from './components/header/header.component';
 import { PokemonPaginationComponent } from './components/pokemon-pagination/pokemon-pagination.component';
 import { PokemonModalComponent } from './components/pokemon-modal/pokemon-modal.component';
-import { TrainerLoginPage } from './components/pages/trainer-login/trainer-login.page';
+import { TrainerLoginPage } from './pages/trainer-login/trainer-login.page';
 import { TrainerAuthComponent } from './components/trainer-auth/trainer-auth.component';
 import { FormsModule } from '@angular/forms';
-import { TrainerProfilePage } from './components/pages/trainer-profile/trainer-profile.page';
+import { TrainerProfilePage } from './pages/trainer-profile/trainer-profile.page';
 
 @NgModule({
   declarations: [

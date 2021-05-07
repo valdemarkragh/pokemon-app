@@ -1,5 +1,5 @@
 import { PokemonService } from './../../services/pokemon.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { PokemonResponse } from 'src/app/models/pokemon.model';
 
 @Component({
@@ -9,6 +9,7 @@ import { PokemonResponse } from 'src/app/models/pokemon.model';
 })
 export class PokemonPaginationComponent implements OnInit {
   @Input() response: PokemonResponse;
+  @Output() animateNext: EventEmitter<any> = new EventEmitter();
 
   constructor(private readonly pokemonService: PokemonService) {}
 
@@ -24,6 +25,7 @@ export class PokemonPaginationComponent implements OnInit {
   }
 
   nextPage(): void {
+    this.animateNext.emit();
     this.pokemonService.fetchPokemons(this.response.next);
   }
 

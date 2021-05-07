@@ -1,7 +1,7 @@
 import { AuthService } from 'src/app/services/auth.service';
 import { StorageService } from 'src/app/services/storage.service';
-import { Pokemon } from './../../../models/pokemon.model';
 import { Component } from '@angular/core';
+import { Pokemon } from 'src/app/models/pokemon.model';
 
 @Component({
   selector: 'app-trainer-profile',

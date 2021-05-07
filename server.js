@@ -1,12 +1,11 @@
 const express = require("express");
+const serveStatic = require("serve-static");
 const path = require("path");
 
 const app = express();
 
-app.use(express.static(__dirname + "/dist/pokemon-app"));
+app.use("/", serveStatic(path.join(__dirname, "/dist/pokemon-app")));
 
-app.get("/*", (req, res, next) => {
-  res.sendFile(path.join(dirname + "/dist//index.html"));
-});
+const port = process.env.PORT || 8080;
 
-app.listen(process.env.PORT || 8000);
+app.listen(port);

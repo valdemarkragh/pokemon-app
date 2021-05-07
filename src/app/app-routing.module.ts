@@ -11,25 +11,30 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     redirectTo: '/pokemon-catalogue',
+    data: { animation: 'isLeft' },
   },
   {
     path: 'pokemon-catalogue',
     component: PokemonCataloguePage,
+    data: { animation: 'isRight' },
     canActivate: [AuthGuard],
   },
   {
     path: 'pokemon-detail/:name',
     component: PokemonPage,
+    data: { animation: 'isLeft' },
     canActivate: [AuthGuard],
   },
   {
     path: 'profile',
     component: TrainerProfilePage,
+    data: { animation: 'isRight' },
     canActivate: [AuthGuard],
   },
   {
     path: 'login',
     component: TrainerLoginPage,
+    data: { animation: 'isLeft' },
   },
 ];
 

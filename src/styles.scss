@@ -8,8 +8,13 @@ $contentColor: #ff0000;
 body {
   font-family: "Poppins", sans-serif;
   color: #fff;
+  background-color: $bgColor;
+  overflow-x: hidden;
 }
 
+.main {
+  position: relative;
+}
 .max-height {
   min-height: 95vh;
 }
@@ -36,10 +41,6 @@ body {
     width: 6rem;
     height: 6rem;
   }
-}
-
-.bg-main {
-  background-color: $bgColor;
 }
 
 .bg-main-dark {
@@ -77,4 +78,19 @@ body {
 
 .color-red {
   color: $contentColor;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $bgColor;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $bgDark;
 }

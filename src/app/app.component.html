@@ -1,4 +1,7 @@
 <app-header></app-header>
-<div class="container-fluid bg-main">
-  <router-outlet></router-outlet>
+<div
+  [@routeAnimations]="prepareRoute(outlet)"
+  class="container-fluid bg-main main"
+>
+  <router-outlet #outlet="outlet"></router-outlet>
 </div>

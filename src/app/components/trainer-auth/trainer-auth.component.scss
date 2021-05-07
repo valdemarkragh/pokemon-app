@@ -25,9 +25,44 @@
 
   & .btn {
     font-size: 2rem;
+    width: fit-content;
+    background-color: inherit;
+
+    &:hover {
+      background-color: #3b4cca;
+    }
   }
 }
 
 .welcome-text {
   letter-spacing: 2px;
+}
+
+#trainerName {
+  background: #3b4cca;
+  border: 3px solid #3b4cca;
+  color: #fff;
+  transition: 0.2s all ease-in-out;
+
+  &::placeholder {
+    color: rgb(170, 171, 233);
+  }
+
+  &:focus {
+    box-shadow: none;
+    border: 3px solid #2d3aa1;
+
+    &::placeholder {
+      color: rgb(196, 197, 245);
+    }
+  }
+}
+
+.figure-shadow {
+  width: inherit;
+  height: 100px;
+  background: #23308b;
+  bottom: 11vh;
+  z-index: -1;
+  border-radius: 50%;
 }

@@ -14,6 +14,8 @@ export class TrainerAuthComponent implements OnInit {
   figureContainer: ElementRef<HTMLDivElement>;
   @ViewChild('formContainer', { static: true })
   formContainer: ElementRef<HTMLDivElement>;
+  @ViewChild('figureShadow', { static: true })
+  figureShadow: ElementRef<HTMLDivElement>;
 
   constructor(
     private readonly authService: AuthService,
@@ -22,8 +24,13 @@ export class TrainerAuthComponent implements OnInit {
 
   ngOnInit(): void {
     gsap.from(this.figureContainer.nativeElement, {
-      x: -2000,
+      x: -1000,
       duration: 1,
+    });
+    gsap.from(this.figureShadow.nativeElement, {
+      opacity: 0,
+      duration: 1,
+      delay: 1,
     });
     gsap.from(this.formContainer.nativeElement, {
       opacity: 0,

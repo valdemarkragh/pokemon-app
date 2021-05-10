@@ -34,7 +34,6 @@ const routes: Routes = [
   {
     path: 'login',
     component: TrainerLoginPage,
-    data: { animation: 'isLeft' },
   },
 ];
 

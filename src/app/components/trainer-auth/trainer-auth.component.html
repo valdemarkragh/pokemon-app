@@ -35,12 +35,10 @@
         class="text-danger fw-bold"
         *ngIf="username.invalid && (username.dirty || username.touched)"
       >
-        <p class="mb-0" *ngIf="username.errors?.required">Name is required</p>
-        <p class="mb-0" *ngIf="username.errors?.minlength">
-          The name is too short
-        </p>
+        <span *ngIf="username.errors?.required">Name is required</span>
+        <span *ngIf="username.errors?.minlength"> The name is too short </span>
       </div>
-      <div>
+      <div class="mt-4">
         <button class="btn btn-primary full-width" [disabled]="!authForm.valid">
           Start!
         </button>

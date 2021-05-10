@@ -1,8 +1,35 @@
-# Code
+# Pokemon Catalogue Project
 
-# PokemonApp
+Pokemon App Developed with Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.11.
+Requirements for the App:
+Must have four routes
+
+<h3>Landing Page</h3>
+<ul>
+<li>The user must be presented with a landing page where they can input their "Trainer name"</li>
+</ul>
+<h3>Pokemon Catalogue Page</h3>
+<ul>
+<li>Users should not have access to this page unless they have entered their trainer name.</li>
+<li>The page must be a list of "card style" pokemon presented to the user.</li>
+<li>The pokemon should have an image and name displayed.</li>
+<li>Each Pokemon card should be clickable and take the user to the pokemon detail page</li>
+</ul>
+<h3>Pokemon Detail Page</h3>
+<ul>
+<li>The detail page must display an image of the pokemon along with its abilities, height, weight and types.</li>
+<li>There must also be a button to "Collect" this Pokemon for the logged in Trainer.</li>
+</ul>
+<h3>Trainer Page</h3>
+<ul>
+<li>The trainer page must display all the Pokemon the Trainer has collected</li>
+<li>It should display a list of Pokemon with their avatar. Each pokemon must be clickable and take the user to the Pokemon Detail page for the specific pokemon</li>
+</ul>
+
+## Available Scripts
+
+In the project directory, you can run:
 
 ## Development server
 
